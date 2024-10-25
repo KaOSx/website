@@ -1,0 +1,22 @@
+---
+import Page from "./Page.astro";
+
+export interface Props {
+  frontmatter: {
+    title: string;
+    description?: string;
+  };
+}
+
+const { frontmatter } = Astro.props;
+---
+
+<Page title={`${frontmatter.title}`}>
+  <main id="main-content">
+    <section
+      class="prose prose-slate dark:prose-invert mb-28 max-w-4xl justify-self-center prose-img:border-0"
+    >
+      <slot />
+    </section>
+  </main>
+</Page>

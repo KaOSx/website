@@ -1,0 +1,68 @@
+---
+import { Icon } from "astro-icon/components";
+import Button from "../components/Button.astro";
+---
+
+<section
+  class="scroll-mt-40 bg-slate-50 rounded-3xl dark:bg-slate-900"
+  id="repo"
+>
+  <div class="px-4 py-16 mx-auto max-w-5xl lg:py-10">
+    <div class="mb-10 md:mx-auto sm:text-center md:mb-12 max-w-3xl">
+      <div class="flex flex-row justify-center gap-24 my-4">
+        <a href="/packaging/package" title="Packaging Guide">
+          <span class="sr-only">Learn about KaOS packaging</span>
+          <Icon
+            name="tabler:school"
+            class="h-24 w-24 text-sky-500 font-medium hover:text-sky-800 transition duration-200"
+          />
+        </a>
+        <a href="/packaging/kcp" title="KCP Guide">
+          <span class="sr-only">Learn about using KCP</span>
+          <Icon
+            name="tabler:books"
+            class="h-24 w-24 text-sky-500 hover:text-sky-800 transition duration-200"
+          />
+        </a>
+      </div>
+      <p class="max-w-3xl mx-auto sm:text-center py-3 my-3">
+        KaOS has limited repositories, for many users the options available will
+        be plenty. When that is not the case, one of the reasons why Pacman was
+        chosen for package manager comes into play. It offers about the easiest
+        solution available to build your own packages. KaOS Community Packages
+        (KCP) was created so everyone can share the PKGBUILDs they created or
+        adjusted for KaOS.
+      </p>
+    </div>
+    <div class="flex flex-col md:flex-row justify-center my-10 gap-4">
+      <a
+        href="http://kaos-community-packages.github.io/"
+        target="_blank"
+        class="group"
+      >
+        <Button
+          >KCP <Icon
+            class="group-hover:translate-x-2 duration-300 ease-in-out"
+            id="icon"
+            name="tabler:chevron-right"
+            size="28"
+          /></Button
+        >
+      </a>
+      <a
+        href="https://github.com/KaOS-Community-Packages/"
+        target="_blank"
+        class="group"
+      >
+        <Button
+          >Code <Icon
+            class="group-hover:translate-x-2 duration-300 ease-in-out"
+            id="icon"
+            name="tabler:chevron-right"
+            size="28"
+          /></Button
+        >
+      </a>
+    </div>
+  </div>
+</section>

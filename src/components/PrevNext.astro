@@ -1,0 +1,57 @@
+---
+import { getCollection } from "astro:content";
+import PrevNextButton from "./PrevNextButton.astro";
+import { Icon } from "astro-icon/components";
+
+const posts = (await getCollection("news")).sort(
+  (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
+);
+
+const currentPostIndex = posts.findIndex(
+  (post) => post.slug == Astro.params.slug,
+);
+const previousPost =
+  currentPostIndex + 1 === posts.length
+    ? undefined
+    : posts[currentPostIndex + 1];
+const nextPost =
+  currentPostIndex === 0 ? undefined : posts[currentPostIndex - 1];
+---
+
+{
+  (previousPost || nextPost) && (
+    <nav class="grid grid-cols-1 gap-8 sm:grid-cols-2 mx-auto max-w-2xl mb-4">
+      {previousPost && (
+        <a
+          href={`/news/${previousPost.slug}/`}
+          class="flex w-full group text-slate-700 dark:text-slate-200 hover:text-slate-800"
+        >
+          <PrevNextButton>
+            <Icon
+              class="group-hover:-translate-x-2 duration-300 ease-in-out"
+              id="icon"
+              name="tabler:chevron-left"
+              size="28"
+            />
+            <div class="font-extralight">Previous:</div>
+            {previousPost.data.title}
+          </PrevNextButton>
+        </a>
+      )}
+      {nextPost && (
+        <a href={`/news/${nextPost.slug}/`} class="flex w-full group">
+          <PrevNextButton>
+            <div class="font-extralight">Next:</div>
+            {nextPost.data.title}
+            <Icon
+              class="group-hover:translate-x-2 duration-300 ease-in-out"
+              id="icon"
+              name="tabler:chevron-right"
+              size="28"
+            />
+          </PrevNextButton>
+        </a>
+      )}
+    </nav>
+  )
+}

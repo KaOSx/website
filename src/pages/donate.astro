@@ -1,0 +1,164 @@
+---
+import Page from "../layouts/Page.astro";
+import { Icon } from "astro-icon/components";
+import Button from "../components/Button.astro";
+import Sponsors from "../components/Sponsors.astro";
+import { Image } from "astro:assets";
+import lf_logo from "../assets/lf_logo.svg";
+//import { SITE } from "../config.ts";
+
+//const meta = {
+//  title: SITE.title,
+//  description: SITE.description,
+//};
+---
+
+<Page title="Donate">
+  <div class="self-center">
+    <div class="max-w-5xl justify-self-center">
+      <div class="flex flex-col items-center justify-center">
+        <p class="mb-8 text-lg md:text-2xl font-bold">Why donate money?</p>
+      </div>
+      <div class="flex flex-col justify-start">
+        <p class="text-lg md:text-lg font-normal">
+          KaOS is free of cost and doesn't generate any direct sort of income.
+          This means that without donations, server costs, paying for hardware
+          needs and test equipment all has to be covered by the developers, on
+          top of the weekly average of 15-20 hours (spare time has to be found
+          for this) it takes to maintain KaOS.
+        </p>
+      </div>
+      <div class="flex flex-col items-center justify-center">
+        <p class="tracking-wide antialiased mb-8 text-lg md:text-2xl font-bold">
+          How to support KaOS?
+        </p>
+      </div>
+      <div class="flex flex-col justify-start">
+        <p class="text-lg md:text-lg font-normal">
+          To support KaOS, donations can be made through <a
+            href="https://crowdfunding.lfx.linuxfoundation.org/projects/kaos-a-lean-kde-distribution"
+            >LFX Crowdfunding</a
+          > (part of the <a href="https://www.linuxfoundation.org/"
+            >Linux Foundation</a
+          >). Funds will be used to offset server costs, obtain needed hardware,
+          upgrade (build) servers and to fund the work of the people behind it.
+        </p>
+      </div>
+      <div class="flex flex-row justify-center mb-8 group">
+        <a
+          href="https://crowdfunding.lfx.linuxfoundation.org/projects/kaos-a-lean-kde-distribution"
+        >
+          <Button
+            >Donate <Icon
+              class="group-hover:translate-x-2 duration-300 ease-in-out"
+              id="icon"
+              name="tabler:chevron-right"
+              size="28"
+            /></Button
+          >
+        </a>
+      </div>
+      <div class="flex flex-col items-center justify-center">
+        <p class="tracking-wide antialiased mb-8 text-lg md:text-2xl font-bold">
+          Can I see how the money is spent?
+        </p>
+      </div>
+      <div class="flex flex-col justify-start">
+        <p class="text-lg md:text-lg font-normal">
+          With using LFX Crowdfunding all income and expenses for KaOS are
+          complete public and transparent. You can read all about how donating
+          to a project works in <a
+            href="https://docs.linuxfoundation.org/lfx/crowdfunding/crowdfunding-faqs"
+            >LFX Crowdfunding documentation</a
+          >.
+        </p>
+      </div>
+      <div class="flex justify-center mt-4 mb-24">
+        <a
+          href="https://crowdfunding.lfx.linuxfoundation.org/projects/kaos-a-lean-kde-distribution"
+        >
+          <Image
+            src={lf_logo}
+            alt="Linux Foundation"
+            width="200"
+            height="75"
+            class="rounded-none"
+          />
+        </a>
+      </div>
+    </div>
+    <Sponsors />
+    <div class="flex flex-col items-center justify-self-center mt-28 max-w-6xl">
+      <p class="mb-8 text-base md:text-lg font-bold">
+        A list of those who have supported KaOS in the past through PayPal or
+        Flattr. Thank You!
+      </p>
+
+      <div class="text-white text-center">
+        <span class="inline-block px-5 py-2 rounded-lg bg-sky-500 mt-1"
+          >Andreas Hein</span
+        >
+        <span class="inline-block px-5 py-2 rounded-lg bg-sky-800 mt-1"
+          >Andy Wywiorka</span
+        >
+        <span class="inline-block px-5 py-2 rounded-lg bg-sky-600 mt-1"
+          >Christopher Bagdanov</span
+        >
+        <span class="inline-block px-5 py-2 rounded-lg bg-sky-900 mt-1"
+          >Eduardo Bohoyo Díaz</span
+        >
+        <span class="inline-block px-5 py-2 rounded-lg bg-sky-500 mt-1"
+          >Fred Heesterbeek</span
+        >
+        <span class="inline-block px-5 py-2 rounded-lg bg-sky-600 mt-1"
+          >Gunther Strube</span
+        >
+        <span class="inline-block px-5 py-2 rounded-lg bg-sky-900 mt-1"
+          >Indy Chery</span
+        >
+        <span class="inline-block px-5 py-2 rounded-lg bg-sky-500 mt-1"
+          >Jacek Jaworski</span
+        >
+        <span class="inline-block px-5 py-2 rounded-lg bg-sky-800 mt-1"
+          >Jerrilyn Tiebesl</span
+        >
+        <span class="inline-block px-5 py-2 rounded-lg bg-sky-600 mt-1"
+          >Jose Fernandez Garcia</span
+        >
+        <span class="inline-block px-5 py-2 rounded-lg bg-sky-900 mt-1"
+          >Jose Mario González González</span
+        >
+        <span class="inline-block px-5 py-2 rounded-lg bg-sky-500 mt-1"
+          >Klaus Bergius</span
+        >
+        <span class="inline-block px-5 py-2 rounded-lg bg-sky-800 mt-1"
+          >Melvin Morris</span
+        >
+        <span class="inline-block px-5 py-2 rounded-lg bg-sky-600 mt-1"
+          >Neil Rankine</span
+        >
+        <span class="inline-block px-5 py-2 rounded-lg bg-sky-900 mt-1"
+          >Orlando Monedero Mones</span
+        >
+        <span class="inline-block px-5 py-2 rounded-lg bg-sky-500 mt-1"
+          >Paresh Adhia</span
+        >
+        <span class="inline-block px-5 py-2 rounded-lg bg-sky-800 mt-1"
+          >Peter Seifert</span
+        >
+        <span class="inline-block px-5 py-2 rounded-lg bg-sky-600 mt-1"
+          >Scott McDonough</span
+        >
+        <span class="inline-block px-5 py-2 rounded-lg bg-sky-900 mt-1"
+          >Stéphane Massoni</span
+        >
+        <span class="inline-block px-5 py-2 rounded-lg bg-sky-500 mt-1"
+          >Thomas Kaiser</span
+        >
+        <span class="inline-block px-5 py-2 rounded-lg bg-sky-800 mt-1"
+          >Vikram Udyavar</span
+        >
+      </div>
+    </div>
+  </div>
+</Page>

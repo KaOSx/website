@@ -1,0 +1,95 @@
+---
+import { Icon } from "astro-icon/components";
+
+const items = [
+  [
+    {
+      title: "The idea behind KaOS",
+      description:
+        "To create a tightly integrated rolling and transparent distribution for the modern desktop, build from scratch with a very specific focus. <strong>Focus on one DE (KDE Plasma), one toolkit (Qt), one architecture (x86_64)</strong>.",
+      icon: "tabler:leaf",
+    },
+    {
+      title: "KDE and Qt focused",
+      description:
+        "Using a <strong>rolling release model</strong>, all is built for best integration with KDE and Qt. Focus is on packaging, a few KaOS developed applications are in use.",
+      icon: "tabler:brand-cpp",
+    },
+    {
+      title: "Target User",
+      description:
+        "It targets users who have tried many Distributions and have found they prefer a Distribution that uses <strong>all its available resources</strong> to work on one DE to make that the best it can be, and know that after their searches, the <strong>best for them is KDE Plasma</strong>.",
+      icon: "tabler:users-plus",
+    },
+  ],
+  [
+    {
+      title: "Goals",
+      description:
+        "There is no goal to make the most possible software available, KaOS will stay <strong>limited in size of the repositories</strong>, and will work on <strong>quality instead of quantity</strong>. That goal makes it clear, a large user base is not what is intended or expected.",
+      icon: "tabler:api-app",
+    },
+    {
+      title: "Elegant Simplicity",
+      description:
+        "Simple goals, independent decisions bring the <strong>power of Plasma 6</strong> to the forefront. Splitting of packages is kept to a minimum",
+      icon: "tabler:git-pull-request",
+    },
+    {
+      title: "Repository layout is simple",
+      description:
+        "Every package in every repository <strong>is build by and for KaOS</strong>, using the powerful <strong>Pacman as package manager</strong>.",
+      icon: "tabler:layers-linked",
+    },
+  ],
+];
+---
+
+<section class="scroll-mt-32 dark:bg-slate-700" id="features">
+  <div class="px-4 py-16 mx-auto max-w-6xl lg:px-8 lg:py-20">
+    {/*<div class="mb-10 md:mx-auto sm:text-center md:mb-12 max-w-3xl">
+      <h2
+        class="text-4xl md:text-5xl leading-tighter tracking-tighter font-heading pb-6 bg-gradient-to-br from-sky-500 from-20% via-sky-800 dark:via-sky-200 via-50% to-black dark:to-white bg-clip-text text-transparent font-bold"
+      >
+        Hae duae provinciaebello quondam
+      </h2>
+      <p
+        class="max-w-3xl mx-auto sm:text-center text-xl py-3 my-3 border-y border-fuchsia-200"
+      >
+        Take back control of your software development process, self-host your
+        projects and get everyone involved in delivering quality software on the
+        same page.
+      </p>
+    </div>*/}
+    <div
+      class="grid mx-auto space-y-6 md:grid-cols-2 md:space-y-0 justify-center"
+    >
+      {
+        items.map((subitems) => (
+          <div class="space-y-8 sm:px-8">
+            {subitems.map(({ title, description, icon }) => (
+              <div class="flex flex-row max-w-md">
+                <div class="mb-4 mr-5">
+                  {icon && (
+                    <Icon
+                      name={icon}
+                      class="w-10 h-10 text-sky-500"
+                    />
+                  )}
+                </div>
+                <div>
+                  <h3
+                    class="leading-10 text-xl font-bold underline decoration-1 decoration-fuchsia-200 underline-offset-[0.5rem]"
+                  >
+                    {title}
+                  </h3>
+                  <p class="text-steel-700" set:html={description} />
+                </div>
+              </div>
+            ))}
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>

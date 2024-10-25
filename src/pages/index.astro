@@ -1,0 +1,60 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Hero from "../components/Hero.astro";
+import Features from "../components/Features.astro";
+import Limited from "../components/Limited.astro";
+import Packaging from "../components/Packaging.astro";
+import MediaText from "../components/MediaText.astro";
+import FAQ from "../components/FAQ.astro";
+import "aos/dist/aos.css";
+---
+
+<Layout>
+  <main class="relative w-full h-full">
+    <Hero />
+    <div
+      data-aos="fade-up"
+      data-aos-delay="200"
+      data-aos-duration="3000"
+      data-aos-easing="ease-in-out-cubic"
+    >
+      <Features />
+    </div>
+    <div
+      data-aos="fade-up"
+      data-aos-delay="200"
+      data-aos-duration="3000"
+      data-aos-easing="ease-in-out-cubic"
+    >
+      <Packaging />
+    </div>
+    <div
+      data-aos="fade-up"
+      data-aos-delay="200"
+      data-aos-duration="3000"
+      data-aos-easing="ease-in-out-cubic"
+    >
+      <MediaText />
+    </div>
+    <div
+      data-aos="fade-up"
+      data-aos-delay="200"
+      data-aos-duration="3000"
+      data-aos-easing="ease-in-out-cubic"
+    >
+      <Limited />
+    </div>
+    <div
+      data-aos="fade-up"
+      data-aos-delay="200"
+      data-aos-duration="3000"
+      data-aos-easing="ease-in-out-cubic"
+    >
+      <FAQ />
+    </div>
+  </main>
+</Layout>
+<script>
+  import AOS from "aos";
+  AOS.init();
+</script>

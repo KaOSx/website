@@ -1,0 +1,177 @@
+---
+import { Icon } from "astro-icon/components";
+import FooterNav from "./FooterNav.astro";
+
+const footerNav1 = [
+  {
+    itemText: "Package Search",
+    itemLink: "/packages",
+  },
+  {
+    itemText: "KCP",
+    itemLink: "https://kaos-community-packages.github.io/",
+  },
+  {
+    itemText: "Mirror Status",
+    itemLink: "https://kaosx.us/packages/mirrors.php",
+  },
+  {
+    itemText: "Gallery",
+    itemLink: "/gallery",
+  },
+];
+
+const footerSupport = [
+  {
+    itemText: "Forum",
+    itemLink: "https://forum.kaosx.us/",
+  },
+  {
+    itemText: "Bugs",
+    itemLink: "/bugs",
+  },
+  {
+    itemText: "Contact Page",
+    itemLink: "/contact",
+  },
+  {
+    itemText: "Matrix Chat",
+    itemLink: "https://webchat.kde.org/#/room/#kaosx:matrix.org",
+  },
+];
+
+const footerInformation = [
+  {
+    itemText: "News",
+    itemLink: "/news",
+  },
+  {
+    itemText: "Docs",
+    itemLink: "/docs",
+  },
+  {
+    itemText: "Packages",
+    itemLink: "/#packages",
+  },
+  {
+    itemText: "Download",
+    itemLink: "/download",
+  },
+];
+const footerCode = [
+  {
+    itemText: "Github",
+    itemLink: "https://github.com/KaOSx",
+  },
+  {
+    itemText: "Transifex",
+    itemLink: "https://www.transifex.com/organization/kaos/dashboard/kaos",
+  },
+  {
+    itemText: "Sponsors",
+    itemLink: "/donate#sponsors",
+  },
+  {
+    itemText: "Donate",
+    itemLink: "/donate",
+  },
+];
+---
+
+<div
+  class="relative md:h-[300px] bg-slate-200 dark:bg-slate-800 rounded-t-3xl"
+  style={{ clipPath: "polygon(0% 0, 100% 0%, 100% 100%, 0 100%)" }}
+>
+  <div class="relative md:h-[calc(100vh+300px)] md:-top-[100vh]">
+    <footer
+      class="mx-auto w-full max-w-container px-4 sm:px-6 max-w-7xl md:sticky md:top-[calc(100vh-300px)]"
+    >
+      <div
+        class="items-centers grid grid-cols-2 justify-between gap-4 pt-16 py-1 lg:grid-cols-3"
+      >
+        <div class="col-span-2 lg:col-span-1 flex flex-col">
+          <div class="">
+            <div class="flex items-center gap-3">
+              <div
+                class="inline-flex text-2xl font-semibold text-heading-1 gap-1"
+              >
+                <img src="/logo.svg" alt="KaOS" width="25" height="25" />
+                KaOS
+              </div>
+            </div>
+            <p class="mt-4 font-light text-sm">
+              To support KaOS, <a href="/donate">donations</a> can be made through
+              LFX Crowdfunding (part of the Linux Foundation). Funds will be used
+              to offset server costs, obtain needed hardware, upgrade (build) servers
+              and to fund the work of the people behind it.
+            </p>
+          </div>
+
+          <!-- social links -->
+          <div class="min-h-max flex items-center gap-4 my-4">
+            <a href="https://github.com/KaOSx" target="_blank">
+              <span class="sr-only">Go to the KaOS' GitHub repo</span>
+              <Icon
+                name="tabler:brand-github"
+                class="h-6 w-6 text-slate-900 dark:text-slate-100 font-medium hover:scale-125 transition duration-200"
+              />
+            </a>
+            <a
+              href="https://groups.google.com/forum/?fromgroups#!forum/kaos-general"
+              target="_blank"
+            >
+              <span class="sr-only">Go to the KaOS Mailing List</span>
+              <Icon
+                name="tabler:mail"
+                class="h-6 w-6 text-slate-900 dark:text-slate-100 hover:scale-125 transition duration-200"
+              />
+            </a>
+            <a
+              href="https://webchat.kde.org/#/room/#kaosx:matrix.org"
+              target="_blank"
+            >
+              <span class="sr-only">Go to the KaOS Matrix Chat Channel</span>
+              <Icon
+                name="tabler:brand-matrix"
+                class="h-6 w-6 text-slate-900 dark:text-slate-100 hover:scale-125 transition duration-200"
+              />
+            </a>
+            <a
+              href="https://www.transifex.com/organization/kaos/dashboard/kaos"
+              target="_blank"
+            >
+              <span class="sr-only">Go to the KaOS Transifex Page</span>
+              <Icon
+                name="tabler:language"
+                class="h-6 w-6 text-slate-900 dark:text-slate-100 hover:scale-125 transition duration-200"
+              />
+            </a>
+            <a href="/rss.xml" target="_blank">
+              <span class="sr-only">KaOS RSS Feed</span>
+              <Icon
+                name="tabler:rss"
+                class="h-6 w-6 text-slate-900 dark:text-slate-100 hover:scale-125 transition duration-200"
+              />
+            </a>
+
+            <!--end social-->
+          </div>
+          <p class="text-sm/6 text-slate-500">
+            © {new Date().getFullYear()}
+            All rights reserved.
+          </p>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-8">
+          <FooterNav title={"Information"} navItems={footerInformation} />
+          <FooterNav title={"Projects"} navItems={footerNav1} />
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-8">
+          <FooterNav title={"Support"} navItems={footerSupport} />
+          <FooterNav title={"Resources"} navItems={footerCode} />
+        </div>
+      </div>
+    </footer>
+  </div>
+</div>

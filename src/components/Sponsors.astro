@@ -1,0 +1,43 @@
+---
+import SponsorCard from "./SponsorCard.astro";
+import { sponsorSection } from "../utils/sponsors.ts";
+---
+
+<section id="sponsors" class="scroll-m-9">
+  <div
+    class="w-full flex flex-col items-center justify-center text-center pt-8 bg-gradient-to-b from-slate-200 to-white dark:from-slate-600 dark:to-slate-700 rounded-t-3xl"
+  >
+    <h2
+      class="mb-8 text-4xl md:text-5xl leading-tighter tracking-tighter font-heading pb-6 bg-gradient-to-br from-sky-500 from-20% via-sky-800 dark:via-sky-200 via-50% to-black dark:to-white bg-clip-text text-transparent font-bold"
+    >
+      Sponsors
+    </h2>
+    <p
+      class="max-w-3xl mx-auto sm:text-center text-xl mb-10 py-3 my-3 border-y border-fuchsia-200 dark:border-fuchsia-900"
+    >
+      A FOSS project like KaOS really need that some companies and individuals
+      are willing to sponsor through donating mirror space, hardware and other
+      vital infrastructure. Here is a list of companies and individuals who are
+      making the development of KaOS into something a bit bigger, more public,
+      possible.
+    </p>
+  </div>
+  <div
+    class="max-w-6xl mx-auto px-5 sm:px-8 md:px-14 lg:px-5 space-y-10 md:sapce-y-12"
+  >
+    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+      {
+        sponsorSection.initiatives.map((initiative) => {
+          return (
+            <SponsorCard
+              title={initiative.title}
+              description={initiative.description}
+              visual={initiative.visual}
+              link={initiative.link}
+            />
+          );
+        })
+      }
+    </div>
+  </div>
+</section>

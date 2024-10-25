@@ -1,0 +1,112 @@
+---
+//import { Image, getImage } from "astro:assets";
+//import hero2 from "../images/hero2.webp";
+import "aos/dist/aos.css";
+import { Icon } from "astro-icon/components";
+import Button from "../components/Button.astro";
+---
+
+<section class="relative flex flex-col items-center justify-center">
+  <div
+    class="w-full bg-gradient-to-b from-white to-slate-200 dark:from-slate-600 dark:to-slate-900 rounded-b-3xl"
+  >
+    <div
+      class="flex justify-center w-full h-full pt-24 pb-20 px-14 items-center"
+    >
+      <div
+        class="flex flex-col justify-center shadow-neutral-900"
+        data-aos="fade-in"
+        data-aos-delay="100"
+        data-aos-duration="3000"
+        data-aos-easing="ease-in-out-cubic"
+      >
+        <p class="text-center font-bold text-xl">Welcome to KaOS</p>
+        <h1
+          class="flex justify-center text-3xl md:text-6xl font-bold leading-tighter tracking-tighter mb-4 font-heading"
+          data-aos="fade-in"
+          data-aos-delay="700"
+          data-aos-duration="3000"
+          data-aos-easing="ease-in-out-cubic"
+        >
+          <span
+            class="bg-gradient-to-br from-sky-500 from-20% via-sky-800 dark:via-sky-200 via-50% to-black dark:to-white bg-clip-text text-transparent"
+          >
+            A Lean KDE Distribution</span
+          >
+        </h1>
+        <div
+          class="flex flex-col justify-center self-center text-center w-2/3 mt-10"
+          data-aos="fade-in"
+          data-aos-delay="1800"
+          data-aos-duration="3000"
+          data-aos-easing="ease-in-out-cubic"
+        >
+          <p class="text-xl text-neutral-800 dark:text-neutral-200 mb-2">
+            KaOS is an independent, built from-scratch Linux distribution,
+            focused on Qt and KDE.
+          </p>
+        </div>
+        <div
+          data-aos="fade-in"
+          data-aos-delay="2500"
+          data-aos-duration="3000"
+          data-aos-easing="ease-in-out-cubic"
+          class="flex flex-col md:flex-row justify-center my-20 gap-4"
+        >
+          <a href="/#features" class="group">
+            <Button
+              >Features <Icon
+                class="group-hover:translate-y-2 duration-300 ease-in-out"
+                id="icon"
+                name="tabler:chevron-down"
+                size="28"
+              /></Button
+            >
+          </a>
+          <a href="/#packages" class="group">
+            <Button
+              >Latest Builds <Icon
+                class="group-hover:translate-y-2 duration-300 ease-in-out"
+                id="icon"
+                name="tabler:chevron-down"
+                size="28"
+              /></Button
+            >
+          </a>
+          <a href="/#repo" class="group">
+            <Button
+              >Limited Repos <Icon
+                class="group-hover:translate-y-2 duration-300 ease-in-out"
+                id="icon"
+                name="tabler:chevron-down"
+                size="28"
+              /></Button
+            >
+          </a>
+          <a href="/#faq" class="group">
+            <Button
+              >FAQ <Icon
+                class="group-hover:translate-y-2 duration-300 ease-in-out"
+                id="icon"
+                name="tabler:chevron-down"
+                size="28"
+              /></Button
+            >
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="absolute bottom-0 left-0 w-full overflow-hidden leading-[0]">
+      <svg
+        class="relative block w-full h-[164px] [transform:rotateY(180deg)] fill-white dark:fill-slate-700"
+        data-name="Layer 1"
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 1200 120"
+        preserveAspectRatio="none"
+      >
+        <path d="M892.25 114.72L0 0 0 120 1200 120 1200 0 892.25 114.72z"
+        ></path>
+      </svg>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,156 @@
+---
+import { Icon } from "astro-icon/components";
+---
+
+<div
+  class="w-screen max-w-md flex-auto overflow-hidden rounded-3xl bg-white dark:bg-slate-300 text-sm leading-6 shadow-2xl dark:shadow-sky-500/40 ring-1 ring-gray-900/5"
+>
+  <div class="p-4">
+    <div class="group relative flex gap-x-6 rounded-lg p-2 hover:bg-gray-50">
+      <div
+        class="mt-1 flex h-11 w-11 flex-none items-center justify-center rounded-lg bg-gray-50 group-hover:bg-white"
+      >
+        <Icon
+          class="group-hover:text-fuchsia-600"
+          id="icon"
+          name="tabler:world-download"
+          size="22"
+        />
+      </div>
+      <div>
+        <a href="#" class="font-semibold text-gray-900">
+          KaOS ISO at SourceForge
+          <span class="absolute inset-0"></span>
+        </a>
+        <p class="mt-1 text-gray-600">SF uses 24 mirrors around the world</p>
+      </div>
+    </div>
+    <div class="group relative flex gap-x-6 rounded-lg p-2 hover:bg-gray-50">
+      <div
+        class="mt-1 flex h-11 w-11 flex-none items-center justify-center rounded-lg bg-gray-50 group-hover:bg-white"
+      >
+        <Icon
+          class="group-hover:text-fuchsia-600"
+          id="icon"
+          name="tabler:network"
+          size="22"
+        />
+      </div>
+      <div>
+        <a href="#" class="font-semibold text-gray-900">
+          KaOS ISO at Chech Mirror
+          <span class="absolute inset-0"></span>
+        </a>
+        <p class="mt-1 text-gray-600">Download from a mirror in Europe</p>
+      </div>
+    </div>
+    <div class="group relative flex gap-x-6 rounded-lg p-2 hover:bg-gray-50">
+      <div
+        class="mt-1 flex h-11 w-11 flex-none items-center justify-center rounded-lg bg-gray-50 group-hover:bg-white"
+      >
+        <Icon
+          class="group-hover:text-fuchsia-600"
+          id="icon"
+          name="tabler:rocket"
+          size="22"
+        />
+      </div>
+      <div>
+        <a href="#" class="font-semibold text-gray-900">
+          KaOS ISO at USA Mirror
+          <span class="absolute inset-0"></span>
+        </a>
+        <p class="mt-1 text-gray-600">
+          Mirror provided by Princeton Universtity
+        </p>
+      </div>
+    </div>
+    <div class="group relative flex gap-x-6 rounded-lg p-2 hover:bg-gray-50">
+      <div
+        class="mt-1 flex h-11 w-11 flex-none items-center justify-center rounded-lg bg-gray-50 group-hover:bg-white"
+      >
+        <Icon
+          class="group-hover:text-fuchsia-600"
+          id="icon"
+          name="tabler:cloud-data-connection"
+          size="22"
+        />
+      </div>
+      <div>
+        <a href="#" class="font-semibold text-gray-900">
+          KaOS ISO at USA Mirror II
+          <span class="absolute inset-0"></span>
+        </a>
+        <p class="mt-1 text-gray-600">
+          Mirror provided by YourHostingSolutions
+        </p>
+      </div>
+    </div>
+    <div class="group relative flex gap-x-6 rounded-lg p-2 hover:bg-gray-50">
+      <div
+        class="mt-1 flex h-11 w-11 flex-none items-center justify-center rounded-lg bg-gray-50 group-hover:bg-white"
+      >
+        <Icon
+          class="group-hover:text-fuchsia-600"
+          id="icon"
+          name="tabler:map-pin-down"
+          size="22"
+        />
+      </div>
+      <div>
+        <a href="#" class="font-semibold text-gray-900">
+          KaOS ISO at Japanese Mirror
+          <span class="absolute inset-0"></span>
+        </a>
+        <p class="mt-1 text-gray-600">Download from a mirror in Azia</p>
+      </div>
+    </div>
+  </div>
+  <div class="grid grid-cols-2 divide-x divide-gray-900/5 bg-gray-50">
+    <a
+      href="/release_notes"
+      class="flex items-center justify-center gap-x-2.5 p-3 font-semibold text-gray-900 hover:bg-gray-100"
+    >
+      <Icon
+        class="text-slate-500"
+        id="icon"
+        name="tabler:clipboard-text"
+        size="20"
+      />
+      Release Notes ISO
+    </a>
+    <a
+      href="https://kaosx.us/packages/mirrors.php"
+      class="flex items-center justify-center gap-x-2.5 p-3 font-semibold text-gray-900 hover:bg-gray-100"
+    >
+      <Icon class="text-slate-500" id="icon" name="tabler:server-2" size="20" />
+      Mirror Status
+    </a>
+  </div>
+  <div class="grid grid-cols-2 divide-x divide-gray-900/5 bg-gray-50">
+    <a
+      href="#"
+      class="flex items-center justify-center gap-x-2.5 p-3 font-semibold text-gray-900 hover:bg-gray-100"
+    >
+      <Icon
+        class="text-slate-500"
+        id="icon"
+        name="tabler:certificate"
+        size="20"
+      />
+      ISO GPG Signature
+    </a>
+    <a
+      href="#"
+      class="flex items-center justify-center gap-x-2.5 p-3 font-semibold text-gray-900 hover:bg-gray-100"
+    >
+      <Icon
+        class="text-slate-500"
+        id="icon"
+        name="tabler:shield-lock"
+        size="20"
+      />
+      KaOS Signing Key
+    </a>
+  </div>
+</div>

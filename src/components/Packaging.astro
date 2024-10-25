@@ -1,0 +1,54 @@
+---
+import Button from "../components/Button.astro";
+import { Icon } from "astro-icon/components";
+---
+
+<section
+  class="scroll-mt-16 bg-slate-50 rounded-3xl dark:bg-slate-900"
+  id="packages"
+>
+  <div class="px-4 py-16 mx-auto max-w-6xl lg:px-8 lg:py-20">
+    <div class="mb-10 md:mx-auto sm:text-center md:mb-12 max-w-3xl">
+      <h2
+        class="text-4xl md:text-5xl leading-tighter tracking-tighter font-heading pb-6 bg-gradient-to-br from-sky-500 from-20% via-sky-800 dark:via-sky-200 via-50% to-black dark:to-white bg-clip-text text-transparent font-bold"
+      >
+        Recent Packages
+      </h2>
+      <p
+        class="max-w-3xl mx-auto sm:text-center text-xl py-3 my-3 border-y border-fuchsia-200 dark:border-fuchsia-900"
+      >
+        KaOS follows the latest innovations, always shipping the most up to date
+        there is available for the Plasma Desktop. This list shows what is being
+        prepared to move to all users soon.
+      </p>
+    </div>
+    <div class="grid mx-auto my-10 justify-center">
+      <iframe
+        src="https://kaosx.us/packages/feature.php"
+        class="h-[350px] w-[400px] rounded-3xl border-2 border-slate-200"
+        title="Latest Build Pacakges"></iframe>
+    </div>
+    <div class="flex flex-row justify-center gap-4">
+      <a href="https://kaosx.us/packages/mirrors.php" class="group">
+        <Button
+          >Mirror Status <Icon
+            class="group-hover:translate-x-2 duration-300 ease-in-out"
+            id="icon"
+            name="tabler:chevron-right"
+            size="28"
+          /></Button
+        >
+      </a>
+      <a href="/download" class="group">
+        <Button
+          >Download <Icon
+            class="group-hover:translate-x-2 duration-300 ease-in-out"
+            id="icon"
+            name="tabler:chevron-right"
+            size="28"
+          /></Button
+        >
+      </a>
+    </div>
+  </div>
+</section>

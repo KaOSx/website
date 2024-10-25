@@ -1,0 +1,59 @@
+---
+import { Icon } from "astro-icon/components";
+---
+
+<astro-scroll-top
+  class="scrollTop sticky left-[100%] mr-12 bottom-20 justify-center items-center z-50 cursor-pointer duration-500 h-0 w-0"
+>
+  <button type="button" title="To Top" class="scroll-top-btn">
+    <Icon
+      name="tabler:caret-up-filled"
+      size="64"
+      class="scroll-to-top-icon text-slate-200 dark:text-slate-600 hover:text-sky-500 hover:dark:text-sky-500 duration-500 ease-in-out"
+    />
+  </button>
+</astro-scroll-top>
+
+<script>
+  export class ScrollTop extends HTMLElement {
+    public buttonScroll: HTMLButtonElement;
+
+    constructor() {
+      super();
+      this.buttonScroll = this.querySelector(
+        ".scroll-top-btn",
+      ) as HTMLButtonElement;
+
+      if (this.buttonScroll) {
+        window.addEventListener("scroll", this.scrollToTop.bind(this));
+
+        this.buttonScroll.addEventListener("click", (event: Event) => {
+          event.preventDefault();
+          window.scrollTo({ top: 0 });
+        });
+      }
+    }
+
+    scrollToTop() {
+      if (window.scrollY >= 460) {
+        this?.classList.add("show-scroll");
+      } else {
+        this?.classList.remove("show-scroll");
+      }
+    }
+  }
+
+  customElements.define("astro-scroll-top", ScrollTop);
+</script>
+
+<style>
+  .scrollTop {
+    display: flex;
+    transition: 0.5s;
+    visibility: hidden;
+  }
+  .show-scroll {
+    visibility: visible;
+    bottom: 3.7rem;
+  }
+</style>

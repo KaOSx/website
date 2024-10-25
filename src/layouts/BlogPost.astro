@@ -1,0 +1,63 @@
+---
+import type { CollectionEntry } from "astro:content";
+import Layout from "../layouts/Layout.astro";
+import FormattedDate from "../components/FormattedDate.astro";
+import PrevNext from "../components/PrevNext.astro";
+import "aos/dist/aos.css";
+
+type Props = CollectionEntry<"news">["data"];
+
+const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
+---
+
+<Layout>
+  <main class="prose prose-slate dark:prose-invert relative max-w-full pt-8">
+    <div class="absolute top-16 left-0 w-full overflow-hidden leading-none">
+      <div class="lg:hidden relative bg-sky-800 h-36 -z-40"></div>
+      <svg
+        class="hidden lg:block relative w-full h-[200px] [transform:rotateY(180deg)] fill-sky-800 -z-50"
+        data-name="Layer 1"
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 1200 120"
+        preserveAspectRatio="none"
+      >
+        <path d="M1200 0L0 0 892.25 114.72 1200 0z"></path>
+      </svg>
+    </div>
+    <article>
+      <div class="flex flex-col mx-auto max-w-4xl pt-0">
+        <div class="mb-16 py-1 leading-2">
+          <h2 class="text-white text-4xl mb-2">{title}</h2>
+          <div class="mb-2 text-slate-400">
+            <FormattedDate date={pubDate} />
+          </div>
+        </div>
+        <div
+          data-aos="fade-in"
+          data-aos-delay="100"
+          data-aos-duration="2500"
+          data-aos-easing="ease-in-out-cubic"
+        >
+          <slot />
+        </div>
+      </div>
+    </article>
+  </main>
+  <PrevNext />
+</Layout>
+<style>
+  table {
+    width: 40%;
+  }
+  table tr:nth-of-type(2) {
+    width: 40%;
+  }
+  img p {
+    width: 460px;
+    max-width: 50%;
+  }
+</style>
+<script>
+  import AOS from "aos";
+  AOS.init();
+</script>

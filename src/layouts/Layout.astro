@@ -1,0 +1,110 @@
+---
+//interface Props {
+//	title: string;
+//	description: string;
+//	image?: string;
+//}
+
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+
+//import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
+
+import { ViewTransitions } from "astro:transitions";
+import Footer from "../components/Footer.astro";
+import Header from "../components/Header.astro";
+import ScrollToTop from "../components/ScollToTop.astro";
+import "../styles/global.css";
+---
+
+<html lang="en" class="scroll-smooth">
+  <head>
+    <!-- Global Metadata -->
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.ico" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="alternate"
+      type="application/rss+xml"
+      title="KaOS"
+      href={new URL("rss.xml", Astro.site)}
+    />
+
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="generator" content={Astro.generator} />
+    <!-- Canonical URL -->
+    <link rel="canonical" href={canonicalURL} />
+
+    <!-- Primary Meta Tags -->
+    <title>KaOS</title>
+    <meta name="title" content="KaOS" />
+    <meta name="description" content="A Lean KDE Distribution" />
+
+    <ViewTransitions />
+  </head>
+  <body>
+    <div class="relative flex flex-col h-full">
+      <Header />
+      <div class="">
+        <slot />
+        <ScrollToTop />
+      </div>
+      <Footer />
+    </div>
+  </body><script>
+    detectSystemTheme();
+
+    const switchTheme = document.querySelector(
+      "[data-switch-theme]",
+    ) as HTMLButtonElement;
+    switchTheme.addEventListener("click", (e) => {
+      e.preventDefault();
+      changeThemeManually();
+    });
+
+    function changeThemeManually() {
+      const localAppTheme = localStorage.getItem("theme");
+      // Whenever the user explicitly chooses dark mode, previously it was light mode
+      if (localAppTheme === "light") {
+        changeThemeToDark();
+      }
+      // Whenever the user explicitly chooses light mode, previously it was dark mode
+      if (localAppTheme === "dark") {
+        changeThemeToLight();
+      }
+      if (!localAppTheme) {
+        console.log("previously it was not set");
+        // Whenever the user explicitly chooses to respect the OS preference
+        detectSystemTheme(true);
+      }
+    }
+
+    function detectSystemTheme(manual = false) {
+      if (
+        localStorage.getItem("theme") === "dark" ||
+        (!("theme" in localStorage) &&
+          window.matchMedia("(prefers-color-scheme: dark)").matches)
+      ) {
+        document.documentElement.classList.add("dark");
+        if (manual) localStorage.setItem("theme", "dark");
+      } else {
+        document.documentElement.classList.remove("dark");
+        if (manual) localStorage.setItem("theme", "light");
+      }
+    }
+
+    function changeThemeToDark() {
+      localStorage.setItem("theme", "dark");
+      document.documentElement.classList.add("dark");
+    }
+
+    function changeThemeToLight() {
+      localStorage.setItem("theme", "light");
+      document.documentElement.classList.remove("dark");
+    }
+  </script>
+</html>

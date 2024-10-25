@@ -1,0 +1,124 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import { getCollection } from "astro:content";
+import type { GetStaticPaths } from "astro";
+import FormattedDate from "../../components/FormattedDate.astro";
+import "aos/dist/aos.css";
+
+export const getStaticPaths = (async ({ paginate }) => {
+  const posts = (await getCollection("news")).sort(
+    (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
+  );
+
+  return paginate(posts, { pageSize: 10 });
+}) satisfies GetStaticPaths;
+
+const { page } = Astro.props;
+
+const pageNums = Array.from({ length: page.lastPage }, (_, i) => i + 1);
+const currentPage = page.currentPage ?? 1;
+---
+
+<Layout>
+  <div class="relative w-full">
+    <div class="absolute top-16 left-0 w-full overflow-hidden leading-none">
+      <div class="lg:hidden relative bg-sky-800 h-36 -z-40"></div>
+      <svg
+        class="hidden lg:block relative w-full h-[200px] [transform:rotateY(180deg)] fill-sky-800 -z-50"
+        data-name="Layer 1"
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 1200 120"
+        preserveAspectRatio="none"
+      >
+        <path d="M1200 0L0 0 892.25 114.72 1200 0z"></path>
+      </svg>
+    </div>
+    <main class="max-w-4xl pt-28">
+      <section>
+        <h2 class="text-2xl lg:text-4xl text-white pb-36">
+          Latest News and Updates
+        </h2>
+        <div
+          data-aos="fade-up"
+          data-aos-delay="100"
+          data-aos-duration="2500"
+          data-aos-easing="ease-in-out-cubic"
+        >
+          <h5 class="text-center text-sky-800 dark:text-sky-400 pb-8">
+            Archive of all KaOS News articles published since its inception in
+            2013
+          </h5>
+          <ul class="flex flex-wrap gap-8 list-none">
+            {
+              page.data.map((post) => (
+                <li class="w-full *:ease-in flex flex-col md:flex-row gap-8">
+                  <img
+                    class="shadow-xl"
+                    width={320}
+                    height={160}
+                    src={post.data.heroImage}
+                    alt=""
+                  />
+                  <div>
+                    <a href={`/news/${post.slug}/`}>
+                      <h4 class="leading-8 hover:text-slate-500">
+                        {post.data.title}
+                      </h4>
+                    </a>
+                    <>
+                      <span class="text-slate-500 text-xs">
+                        <FormattedDate date={post.data.pubDate} />
+                      </span>
+                      <br />
+                    </>
+
+                    <span class="text-slate-700 dark:text-slate-300 mt-2">
+                      {post.data.description}
+                    </span>
+                    <a href={`/news/${post.slug}/`}>...Read article →</a>
+                  </div>
+                </li>
+              ))
+            }
+          </ul>
+          <div class="my-12 justify-self-center">
+            {
+              page.lastPage > 1 && (
+                <nav>
+                  {page.url.prev && (
+                    <a
+                      href={page.url.prev}
+                      class="mr-4 text-slate-800 dark:text-slate-200"
+                    >
+                      Previous
+                    </a>
+                  )}
+                  {pageNums.map((num) => (
+                    <a
+                      href={`/news/${num === 1 ? "" : num + "/"}`}
+                      class="text-slate-500 p-2 {currentPage===num ? border-none : border}"
+                    >
+                      {num}
+                    </a>
+                  ))}
+                  {page.url.next && (
+                    <a
+                      href={page.url.next}
+                      class="ml-4 text-slate-800 dark:text-slate-200"
+                    >
+                      Next
+                    </a>
+                  )}
+                </nav>
+              )
+            }
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+</Layout>
+<script>
+  import AOS from "aos";
+  AOS.init();
+</script>

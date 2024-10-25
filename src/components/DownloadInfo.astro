@@ -1,0 +1,176 @@
+---
+import { Icon } from "astro-icon/components";
+import DownloadSidebar from "../components/DownloadSidebar.astro";
+---
+
+<div
+  class="relative isolate overflow-hidden px-6 py-12 sm:py-10 lg:overflow-visible lg:px-0"
+>
+  <div
+    class="mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 lg:mx-0 lg:max-w-none lg:grid-cols-2 lg:items-start lg:gap-y-10"
+  >
+    <div
+      class="lg:col-span-2 lg:col-start-1 lg:row-start-1 lg:mx-auto lg:grid lg:w-full lg:max-w-7xl lg:grid-cols-2 lg:gap-x-8 lg:px-8"
+    >
+      <div class="lg:pr-4">
+        <div class="lg:max-w-lg">
+          <h4 class="mt-2 text-pretty font-semibold tracking-tight sm:text-5xl">
+            KaOS 2024.09 ISO
+          </h4>
+          <p class="mt-6 text-xl leading-8">
+            KaOS makes regular ISO releases available, so any (new) user is not
+            confronted with a large or complicated first update. Those who
+            already have KaOS installed do not need to reinstall, a regular
+            system update will always give you the latest.
+          </p>
+        </div>
+      </div>
+    </div>
+    <div
+      class="sm:mt-4 sm:p-14 lg:sticky lg:top-2 lg:col-start-2 lg:row-span-2 lg:row-start-1 lg:overflow-hidden lg:-mt-56"
+    >
+      <DownloadSidebar />
+    </div>
+    <div
+      class="lg:col-span-2 lg:col-start-1 lg:row-start-2 lg:mx-auto lg:grid lg:w-full lg:max-w-7xl lg:grid-cols-2 lg:gap-x-8 lg:px-8"
+    >
+      <div class="lg:pr-4">
+        <div class="max-w-xl text-base leading-7 lg:max-w-lg">
+          <p>
+            The September version ships with <strong>Plasma 6.1.2</strong> as the
+            default desktop and has a size of 3.5 GiB.
+          </p>
+          <ul role="list" class="mt-8 space-y-8 text-sm">
+            <li class="flex gap-x-3">
+              <Icon
+                class="flex-none text-fuchsia-600"
+                id="icon"
+                name="tabler:apps"
+                size="24"
+              />
+              <span
+                ><strong class="font-semibold">KDE Applications</strong>
+                24.08.1 are included, as are Linux kernel 6.10.11 (Linux-next is
+                in the repo’s, following the 6.11 series), GCC 13.1.1, Glibc 2.39,
+                Systemd 253.25, Kmod 33, Xorg-server 21.1.13, Qt 6.7.2, Mesa 24.2.3,
+                Calligra 4.0.1, LibreOffice 24.8.1, Elisa and the latest versions
+                of Falkon, Octopi, & Neochat.
+              </span>
+            </li>
+            <li class="flex gap-x-3">
+              <Icon
+                class="flex-none text-fuchsia-600"
+                id="icon"
+                name="tabler:api-app"
+                size="24"
+              />
+              <span
+                ><strong class="font-semibold"
+                  >For those wondering about gtk apps</strong
+                >, Firefox 130, Chrome 131, Thunderbird 128, GIMP 2.99.18,
+                Ardour 8.7.0 are among the available in their latest version.
+              </span>
+            </li>
+            <li class="flex gap-x-3">
+              <Icon
+                class="flex-none text-fuchsia-600"
+                id="icon"
+                name="tabler:device-usb"
+                size="24"
+              />
+              <span
+                ><strong class="font-semibold">Media Creation.</strong> To create
+                reliable Media for booting the Live ISO, please read <a
+                  href="/install/usb_flash">Create Install Media</a
+                > and follow the instructions for either using a USB flash drive
+                or DVD disc. Though UEFI booting is supported, Secure Boot is not
+                at this time. See <a
+                  href="https://arstechnica.com/information-technology/2016/08/microsoft-secure-boot-firmware-snafu-leaks-golden-key/"
+                  target="_blank">this link</a
+                > for more on Secure Boot.
+              </span>
+            </li>
+            <li class="flex gap-x-3">
+              <Icon
+                class="flex-none text-fuchsia-600"
+                id="icon"
+                name="tabler:certificate"
+                size="24"
+              />
+              <span
+                ><strong class="font-semibold">Authenticity check.</strong> It is
+                advised to check the integrity of the downloaded ISO by comparing
+                SHA256Sum and to check the authenticity through the signature of
+                the ISO.</span
+              >
+            </li>
+            <li id="known-issues" class="flex gap-x-3">
+              <Icon
+                class="flex-none text-fuchsia-600"
+                id="icon"
+                name="tabler:bug"
+                size="24"
+              />
+              <span
+                ><strong class="font-semibold scroll-mt-16"
+                  >Known issues.</strong
+                > Installing on RAID is currently not possible.</span
+              >
+            </li>
+          </ul>
+          <code
+            class="text-xs lg:text-sm inline-flex overflow-x-auto text-left items-center space-x-4 bg-gray-800 text-white rounded-lg p-4 pl-6 mt-8"
+          >
+            <span class="flex gap-4">
+              <span class="text-gray-500"> $ </span>
+              <span class="flex-1">
+                <span> SHA256SUM KaOS 2024.09 </span>
+
+                <span class="text-yellow-500">
+                  7713f3864dd438f8d2c8609e8d25e28fda21b3da611400fed4df3f8802641489
+                </span>
+              </span>
+            </span>
+          </code>
+          <h2 class="mt-16 text-2xl font-bold tracking-tight">
+            Using GnuPG to verify the ISO signature
+          </h2>
+
+          <p class="mt-6">
+            Besides checking the integrity of the downloaded ISO, it is advised
+            to also check the authenticity through the signature of the ISO. For
+            this download the KaOS Signing Key. Add this key to your keyring:
+          </p>
+          <code
+            class="text-sm inline-flex text-left items-center space-x-4 bg-gray-800 text-white rounded-lg p-4 pl-6"
+          >
+            <span class="flex gap-4">
+              <span class="shrink-0 text-gray-500"> $ </span>
+
+              <span class="flex-1 text-sky-500">
+                <span> gpg --import </span>
+                <span class="text-teal-400">KaOS.asc </span>
+              </span>
+            </span>
+          </code>
+          <p class="mt-2">
+            Next download the ISO GPG Signature to the same directory as where
+            you downloaded the ISO and verify with (adjust for correct year and
+            date):
+          </p>
+          <code
+            class="text-sm inline-flex text-left items-center space-x-4 bg-gray-800 text-white rounded-lg p-4 pl-6"
+          >
+            <span class="flex gap-4">
+              <span class="shrink-0 text-gray-500"> $ </span>
+              <span class="flex-1 text-sky-500">
+                <span> gpg --verify </span>
+                <span class="text-teal-400">KaOS-2024.09-x86_64.iso.sig</span>
+              </span>
+            </span>
+          </code>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
