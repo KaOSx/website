@@ -34,18 +34,18 @@ export default defineConfig({
         email:
           "https://groups.google.com/forum/?fromgroups#!forum/kaos-general",
         matrix: "https://webchat.kde.org/#/room/#kaosx:matrix.org",
-        rss: "https://kaosx.us/feed.xml",
+        rss: "https://kaosx.us/rss.xml",
       },
       disable404Route: true,
       customCss: ["./src/styles/starlight.css"],
       editLink: {
-        baseUrl: "https://github.com/kaosx/kaosx.github.io/edit/main/",
+        baseUrl: "https://github.com/kaosx/website/edit/main/",
       },
       sidebar: [
         { label: "Forum", link: "https://forum.kaosx.us/" },
         { label: "Download", link: "/download/" },
         { label: "News", link: "/news/" },
-        { label: "Packages", link: "https://kaosx.us/packages" },
+        { label: "Packages", link: "/packages/" },
         {
           label: "Basics",
           items: ["docs", "pacman", "bugs", "kernels"],
