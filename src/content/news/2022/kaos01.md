@@ -5,7 +5,7 @@ permalink: /news/2022/kaos01/
 pubDate: "2022-01-03 01:23:31 -0500"
 date_gmt: "2022-01-03 01:23:31 -0500"
 description: Three days into the New-Year, KaOS is very proud to announce the availability of a first ISO for 2022.
-heroImage: "/blog-placeholder-2.jpg"
+heroImage: "/hero/2022/kdenlive.webp"
 ---
 
 {% include image.html

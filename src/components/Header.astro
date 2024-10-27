@@ -5,119 +5,138 @@ import { Image } from "astro:assets";
 import logo from "../assets/logo.svg";
 ---
 
-<header class="fixed z-20 w-full bg-transparent">
+<header
+  class="lg:fixed z-20 w-full bg-transparent lg:shadow-[0_2px_8px_rgba(0,0,0,0.05)]"
+>
   <nav
-    class="flex items-center justify-between w-full px-4 lg:px-16 bg-white/70 dark:bg-slate-700/70 backdrop-blur-lg"
+    class="flex lg:flex-row lg:items-center justify-between w-full px-4 lg:px-16 bg-white/70 dark:bg-slate-700/70 lg:backdrop-blur-lg"
   >
-    <a href="/" class="flex whitespace-nowrap">
+    <a href="/" class="absolute lg:static flex whitespace-nowrap">
       <Image src={logo} alt="KaOS logo" width="50" height="50" />
 
       <span
-        class="hidden sm:inline-block ml-1 self-center bg-gradient-to-r from-sky-950 dark:from-sky-600 to-sky-500 dark:to-sky-500 bg-clip-text text-4xl text-transparent"
+        class="ml-1 self-center bg-gradient-to-r from-sky-950 dark:from-sky-600 to-sky-500 dark:to-sky-500 bg-clip-text text-4xl text-transparent"
         >KaOS</span
       >
     </a>
-    <div class="internal-links flex flex-grow justify-center gap-2">
-      <HeaderLink href="https://forum.kaosx.us/">Forum</HeaderLink>
-      <span class="hidden sm:inline-block"
-        ><HeaderLink href="/news">News</HeaderLink></span
-      >
-      <HeaderLink href="/docs">Docs</HeaderLink>
-      <HeaderLink href="/download">Download</HeaderLink>
-      <span class="hidden lg:inline-block"
-        ><HeaderLink href="/packages">Packages</HeaderLink></span
-      >
-      <span class="hidden lg:inline-block"
-        ><HeaderLink href="https://kaos-community-packages.github.io/"
-          >KCP</HeaderLink
-        ></span
-      >
-      <span class="hidden sm:inline-block"
-        ><HeaderLink href="/donate">Donate</HeaderLink></span
-      >
-    </div>
-    <div class="social-links flex justify-end items-end">
-      <a href="https://github.com/KaOSx" target="_blank">
-        <span class="sr-only">Go to the KaOS' GitHub repo</span>
-        <Icon
-          name="tabler:brand-github"
-          class="h-5 w-5 text-slate-800 dark:text-slate-200 hover:scale-110 transition duration-200"
-        />
-      </a>
-      <a
-        href="https://groups.google.com/forum/?fromgroups#!forum/kaos-general"
-        target="_blank"
-      >
-        <span class="sr-only">Go to the KaOS Mailing List</span>
-        <Icon
-          name="tabler:mail"
-          class="h-5 w-5 text-slate-800 dark:text-slate-200 hover:scale-110 transition duration-200"
-        />
-      </a>
-      <a
-        href="https://webchat.kde.org/#/room/#kaosx:matrix.org"
-        target="_blank"
-      >
-        <span class="sr-only">Go to the KaOS Matrix Chat Channel</span>
-        <Icon
-          name="tabler:brand-matrix"
-          class="h-5 w-5 text-slate-800 dark:text-slate-200 hover:scale-110 transition duration-200"
-        />
-      </a>
-      <a
-        href="https://www.transifex.com/organization/kaos/dashboard/kaos"
-        target="_blank"
-      >
-        <span class="sr-only">Go to the KaOS Transifex Page</span>
-        <Icon
-          name="tabler:language"
-          class="h-5 w-5 text-slate-800 dark:text-slate-200 hover:scale-110 transition duration-200"
-        />
-      </a>
-      <a href="/rss.xml" target="_blank">
-        <span class="sr-only">KaOS RSS Feed</span>
-        <Icon
-          name="tabler:rss"
-          class="h-5 w-5 text-slate-800 dark:text-slate-200 hover:scale-110 transition duration-200"
-        />
-      </a>
-    </div>
-    <div class="flex items-center pl-2">
-      <button
-        data-switch-theme
-        class="outline-none flex relative text-heading-2 rounded-full p-2 border bg-slate-100 dark:bg-slate-700 hover:bg-slate-200 dark:hover:bg-slate-900"
-      >
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          fill="none"
-          viewBox="0 0 24 24"
-          stroke-width="1.5"
-          stroke="currentColor"
-          class="w-6 h-6 dark:flex hidden"
+    <div class="lg:flex lg:flex-row w-full">
+      <div class="flex justify-end">
+        <button
+          class="hamburger-menu lg:hidden flex p-2"
+          aria-label="Open Menu"
+          aria-expanded="false"
+          aria-controls="menu-items"
         >
-          <path
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            d="M21.752 15.002A9.718 9.718 0 0118 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 003 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 009.002-5.998z"
-          ></path>
-        </svg>
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          fill="none"
-          viewBox="0 0 24 24"
-          stroke-width="1.5"
-          stroke="currentColor"
-          class="w-6 h-6 dark:hidden"
+          <Icon
+            name="tabler:menu-2"
+            class="menu-icon cursor-pointer h-8 w-8 text-slate-600 dark:text-slate-300 transition-transform ease-in-out"
+          />
+        </button>
+      </div>
+      <div
+        id="menu-items"
+        class="hidden lg:flex lg:flex-row w-full items-center mx-auto"
+      >
+        <div
+          class="internal-links grid lg:flex lg:flex-grow justify-center gap-4 lg-gap-2"
         >
-          <path
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            d="M12 3v2.25m6.364.386l-1.591 1.591M21 12h-2.25m-.386 6.364l-1.591-1.591M12 18.75V21m-4.773-4.227l-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0z"
-          ></path>
-        </svg>
+          <HeaderLink href="https://forum.kaosx.us/">Forum</HeaderLink>
+          <HeaderLink href="/news">News</HeaderLink>
+          <HeaderLink href="/docs">Docs</HeaderLink>
+          <HeaderLink href="/download">Download</HeaderLink>
+          <HeaderLink href="/packages">Packages</HeaderLink>
+          <HeaderLink href="/bugs">Bugs</HeaderLink>
+          <HeaderLink href="https://kaos-community-packages.github.io/"
+            >KCP</HeaderLink
+          >
+          <HeaderLink href="/donate">Donate</HeaderLink>
+        </div>
+        <div
+          class="social-links flex justify-center lg:justify-end items-end mt-6 lg:mt-0"
+        >
+          <a href="https://github.com/KaOSx" target="_blank">
+            <span class="sr-only">Go to the KaOS' GitHub repo</span>
+            <Icon
+              name="tabler:brand-github"
+              class="size-8 lg:size-5 text-slate-800 dark:text-slate-200 hover:scale-110 transition duration-200"
+            />
+          </a>
+          <a
+            href="https://groups.google.com/forum/?fromgroups#!forum/kaos-general"
+            target="_blank"
+          >
+            <span class="sr-only">Go to the KaOS Mailing List</span>
+            <Icon
+              name="tabler:mail"
+              class="size-8 lg:size-5 text-slate-800 dark:text-slate-200 hover:scale-110 transition duration-200"
+            />
+          </a>
+          <a
+            href="https://webchat.kde.org/#/room/#kaosx:matrix.org"
+            target="_blank"
+          >
+            <span class="sr-only">Go to the KaOS Matrix Chat Channel</span>
+            <Icon
+              name="tabler:brand-matrix"
+              class="h-5 w-5 text-slate-800 dark:text-slate-200 hover:scale-110 transition duration-200"
+            />
+          </a>
+          <a
+            href="https://www.transifex.com/organization/kaos/dashboard/kaos"
+            target="_blank"
+          >
+            <span class="sr-only">Go to the KaOS Transifex Page</span>
+            <Icon
+              name="tabler:language"
+              class="h-5 w-5 text-slate-800 dark:text-slate-200 hover:scale-110 transition duration-200"
+            />
+          </a>
+          <a href="/rss.xml" target="_blank">
+            <span class="sr-only">KaOS RSS Feed</span>
+            <Icon
+              name="tabler:rss"
+              class="h-5 w-5 text-slate-800 dark:text-slate-200 hover:scale-110 transition duration-200"
+            />
+          </a>
+        </div>
+        <div class="flex justify-center mt-6 lg:mt-0 pl-2">
+          <button
+            data-switch-theme
+            class="outline-none flex relative text-heading-2 rounded-full p-2 border bg-slate-100 dark:bg-slate-700 hover:bg-slate-200 dark:hover:bg-slate-900"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke-width="1.5"
+              stroke="currentColor"
+              class="w-6 h-6 dark:flex hidden"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M21.752 15.002A9.718 9.718 0 0118 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 003 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 009.002-5.998z"
+              ></path>
+            </svg>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke-width="1.5"
+              stroke="currentColor"
+              class="w-6 h-6 dark:hidden"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M12 3v2.25m6.364.386l-1.591 1.591M21 12h-2.25m-.386 6.364l-1.591-1.591M12 18.75V21m-4.773-4.227l-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0z"
+              ></path>
+            </svg>
 
-        <span class="sr-only">switch theme</span>
-      </button>
+            <span class="sr-only">switch theme</span>
+          </button>
+        </div>
+      </div>
     </div>
   </nav>
 </header>
@@ -125,7 +144,6 @@ import logo from "../assets/logo.svg";
   header {
     margin: 0;
     padding: 0 0em;
-    box-shadow: 0 2px 8px rgba(var(--black), 5%);
   }
   nav a {
     padding: 0.3em 0.5em;
@@ -136,13 +154,31 @@ import logo from "../assets/logo.svg";
   nav a.active {
     color: (var(--accent));
   }
-  .social-links,
-  .social-links a {
-    display: flex;
-  }
-  @media (max-width: 1024px) {
-    .social-links {
-      display: none;
-    }
+  .menu-icon.is-active {
+    rotate: 30deg;
   }
 </style>
+<script>
+  function toggleNav() {
+    // Toggle menu
+    const menuBtn = document.querySelector(".hamburger-menu");
+    const menuIcon = document.querySelector(".menu-icon");
+    const menuItems = document.querySelector("#menu-items");
+
+    menuBtn?.addEventListener("click", () => {
+      const menuExpanded = menuBtn.getAttribute("aria-expanded") === "true";
+      menuIcon?.classList.toggle("is-active");
+      menuBtn.setAttribute("aria-expanded", menuExpanded ? "false" : "true");
+      menuBtn.setAttribute(
+        "aria-label",
+        menuExpanded ? "Open Menu" : "Close Menu",
+      );
+      menuItems?.classList.toggle("hidden");
+    });
+  }
+
+  toggleNav();
+
+  // Runs on view transitions navigation
+  document.addEventListener("astro:after-swap", toggleNav);
+</script>

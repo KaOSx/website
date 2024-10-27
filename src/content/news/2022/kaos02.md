@@ -4,8 +4,8 @@ title: KaOS 2022.02
 permalink: /news/2022/kaos02/
 pubDate: "2022-02-14 01:23:31 -0500"
 date_gmt: "2022-02-14 01:23:31 -0500"
-description: It is a great pleasure to present to you the September release of a new stable ISO. More applications are now ready to use Qt6 and Frameworks 6, the big one now being Calligra.
-heroImage: "/blog-placeholder-3.jpg"
+description: With the release of Plasma 5.24, a first for KaOS can be announced. Wayland on Plasma is in such a good shape that it now can be the default session for KaOS
+heroImage: "/hero/2022/welcome.webp"
 ---
 
 {% include image.html
@@ -80,10 +80,10 @@ This ISO uses the **CRC and finobt enabled** XFS filesystem as default. CRCs ena
 
 The artwork includes custom icon themes for light and dark themes. Midna and Midna Dark both create a complete unified look from boot-up all the way through logout.
 
-There is an option to verify the authenticity of downloaded KaOS ISO files **through GPG signature verification**, see the [Download page](https://kaosx.us/pages/download/#authenticity-check){:target="\_blank"} for further details and instructions.
+There is an option to verify the authenticity of downloaded KaOS ISO files **through GPG signature verification**, see the [Download page](https://kaosx.us/pages/download/#authenticity-check) for further details and instructions.
 
 ## Known issues:
 
 - Installing on RAID is currently not possible
 
-To create **reliable** installation media, please follow the instructions from the [Download](http://kaosx.us/download/){:target="\_blank"} page. KaOS ISO's **do not support Unetbootin or Rufus**, and DVDs need a burn speed **no higher than 4x**.
+To create **reliable** installation media, please follow the instructions from the [Download](http://kaosx.us/download/) page. KaOS ISO's **do not support Unetbootin or Rufus**, and DVDs need a burn speed **no higher than 4x**.

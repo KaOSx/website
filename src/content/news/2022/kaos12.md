@@ -4,8 +4,8 @@ title: KaOS 2022.12
 permalink: /news/2022/kaos12/
 pubDate: "2022-12-10 01:23:31 -0500"
 date_gmt: "2022-12-10 01:23:31 -0500"
-description: It is a great pleasure to present to you the September release of a new stable ISO. More applications are now ready to use Qt6 and Frameworks 6, the big one now being Calligra.
-heroImage: "/blog-placeholder-4.jpg"
+description: With over 70% of the distribution rebuilt, a new ISO is more than due. Updates to the base of the system included a new GCC 12.2.0, Glibc 2.36 and Binutils 2.39 based toolchain
+heroImage: "/hero/2022/plasma6.webp"
 ---
 
 {% include image.html
@@ -53,11 +53,7 @@ The Linux kernel has all the needed ucode build-in for a fully automated Early M
 KaOS uses the Systemd-provided Systemd-boot for UEFI installs.
 
 Included is a KaOS-specific tool to write ISO files to USB. Not only does **IsoWriter** write to USB it also gives the option to recover your USB stick after using it for an ISO, something that regular dd copy or the previously used Imagewriter were not able to do. New in this version is the ability to **verify the integrity of the written USB flash drive** in comparison to the downloaded ISO file. This can be done in Dolphin too, right-click the ISO file, select Actions then select Verify ISO Write.
-{% include image.html
-            img="img/2020/croeso_packages.png"
-            title="Croeso Package Selection Page"
-            caption="Croeso Package Selection Page"
-            url="/img/2020/croeso_packages.png" %}
+![](/2020/croeso_packages.png "Croeso Package Selection Page")
 Since LibreOffice 6.2, it is now possible to supply this as a pure Qt5/kf5 application. **LibreOffice** has thus replaced Calligra as the default Office Application for KaOS.
 
 KaOS' creation **Croeso** (Welsh for welcome) for helping with configuring a new install is included. It will run on the newly installed system and offers to adjust some 15 commonly used settings, includes a custom Wallpaper selector, distribution info, and the option to select packages to install from six different groups. It is written in QML and fits well with the Welcome application used in the Live system. The latter includes an Installation Guide.
