@@ -12,7 +12,7 @@ const isActive = href === pathname || href === "/" + subpath?.[0];
 
 <a
   href={href}
-  class="relative items-center lg:flex p-1 transition-all ease-in-out before:transition-[width] before:ease-in-out before:duration-700 before:absolute before:bg-fuchsia-600 before:origin-center before:h-[2px] before:w-0 hover:before:w-[50%] before:-bottom-px before:left-[50%] after:transition-[width] after:ease-in-out after:duration-700 after:absolute after:bg-fuchsia-600 after:origin-center after:h-[2px] after:w-0 hover:after:w-[50%] after:-bottom-px after:right-[50%]"
+  class="relative items-center lg:flex p-1 transition-all ease-in-out before:transition-[width] before:ease-in-out before:duration-700 before:absolute before:bg-fuchsia-600 before:origin-center before:h-[1px] before:w-0 hover:before:w-[50%] before:-bottom-px before:left-[50%] after:transition-[width] after:ease-in-out after:duration-700 after:absolute after:bg-fuchsia-600 after:origin-center after:h-[1px] after:w-0 hover:after:w-[50%] after:-bottom-px after:right-[50%]"
   class:list={[className, { active: isActive }]}
   {...props}
 >
@@ -25,6 +25,6 @@ const isActive = href === pathname || href === "/" + subpath?.[0];
     text-decoration: none;
   }
   a.active {
-    border-top-color: rgb(var(--gray));
+    border-bottom-color: #c026d3;
   }
 </style>
