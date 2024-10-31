@@ -28,6 +28,9 @@ export default defineConfig({
         dark: "/src/assets/logo.svg",
         replacesTitle: false,
       },
+      components: {
+        Head: "./src/components/HeadStarlight.astro",
+      },
       favicon: "/favicon.ico",
       social: {
         github: "https://github.com/KaOSx",

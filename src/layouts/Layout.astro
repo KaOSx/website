@@ -43,9 +43,20 @@ import "../styles/global.css";
     <title>KaOS</title>
     <meta name="title" content="KaOS" />
     <meta name="description" content="A Lean KDE Distribution" />
-
-    <ViewTransitions />
+    <!-- Transifex Script -->
+    <script is:inline type="text/javascript">
+      window.liveSettings = {
+        api_key: "62d23a7da55446d5beb5f7a0e0777309",
+        picker: "bottom-right",
+      };
+    </script>
+    <script is:inline type="text/javascript" src="//cdn.transifex.com/live.js"
+    ></script>
+    <!--<script is:inline type="text/javascript" src="/js/live.js"></script>-->
   </head>
+
+  <ViewTransitions />
+
   <body>
     <div class="relative flex flex-col h-full">
       <Header />
@@ -107,4 +118,5 @@ import "../styles/global.css";
       document.documentElement.classList.remove("dark");
     }
   </script>
+
 </html>

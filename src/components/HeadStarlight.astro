@@ -1,0 +1,15 @@
+---
+import type { Props } from "@astrojs/starlight/props";
+import Default from "@astrojs/starlight/components/Head.astro";
+---
+
+<script is:inline type="text/javascript">
+  window.liveSettings = {
+    api_key: "62d23a7da55446d5beb5f7a0e0777309",
+    picker: "bottom-right",
+  };
+</script>
+<script is:inline type="text/javascript" src="//cdn.transifex.com/live.js"
+></script>
+
+<Default {...Astro.props}><slot /> </Default>
