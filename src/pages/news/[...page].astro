@@ -16,7 +16,6 @@ export const getStaticPaths = (async ({ paginate }) => {
 const { page } = Astro.props;
 
 const pageNums = Array.from({ length: page.lastPage }, (_, i) => i + 1);
-const currentPage = page.currentPage ?? 1;
 ---
 
 <Layout>
@@ -96,7 +95,8 @@ const currentPage = page.currentPage ?? 1;
                   {pageNums.map((num) => (
                     <a
                       href={`/news/${num === 1 ? "" : num + "/"}`}
-                      class="text-slate-500 p-2 {currentPage===num ? border-none : border}"
+                      class=`text-slate-500 px-3 py-2 text-sm rounded-lg ${page.currentPage===num ? "bg-slate-200 text-slate-800 hover:text-slate-800" : "bg-transparent"}`
+                      aria-label="page"
                     >
                       {num}
                     </a>
