@@ -22,17 +22,15 @@ comments: []
 
 KaOS has limited repositories, for many users the options available will be plenty. When that is not the case, one of the reasons why Pacman was chosen for package manager comes into play. It offers about the easiest solution available to build your own packages (through makepkg). Plus there are tens of thousands readily available package scripts (PKGBUILD) through the many distributions that use pacman.
 
-- This will become a table of contents (this text will be scraped).
-
 Debian based distributions (for example), offer the option to add PPA's, but those are binary packages, so there is no control over what exactly is added, and on what dependencies they were build. A much cleaner and safer way to add your missing packages is build them locally.
 
 This tutorial will cover how to get the needed package scripts from various GIT archives and community repositories many distributions use.
 
 ### Preparation
 
-It is easiest to set up a build directory within `/home`. Throughout this tutorial we'll be using **GUI options** whenever possible, so for adding the directory, open Dolphin.
+<a href="/wp-content/uploads/2013/08/new_folder1.png"><img src="/wp-content/uploads/2013/08/new_folder1-150x150.png" style="float:right;"></a>
 
-[![new_folder](/wp-content/uploads/2013/08/new_folder1-150x150.png){: width="150" height="150" .alignright .size-thumbnail}](/wp-content/uploads/2013/08/new_folder1.png)
+It is easiest to set up a build directory within `/home`. Throughout this tutorial we'll be using **GUI options** whenever possible, so for adding the directory, open Dolphin.
 
 Right click in your home directory and select **Create new** &rarr; **Folder**. For this example we'll call the folder `build`.
 
@@ -51,15 +49,15 @@ And select default to install the whole group.
 
 [KCP](https://github.com/KaOS-Community-Packages) is where KaOS users can share their created package scripts.
 
-[![split_full](/wp-content/uploads/2013/08/snapshot5-150x150.png){: width="150" height="150" .alignright .size-thumbnail}](/wp-content/uploads/2013/08/snapshot5.png)
-
 You can search by package name or by description, once you found your desired package, click on `Download ZIP`.
+
+<a href="/wp-content/uploads/2013/08/snapshot5.png"><img src="/wp-content/uploads/2013/08/snapshot5-150x150.png" style="float:right;"></a>
 
 Going back to dolphin, and the newly created `build` directory, click on **split**, and navigate in the right, newly opened panel to the directory where your downloads go.
 
 Click the just downloaded package zip, this will open the zip file in Ark. Select **Action** &rarr; **Extract** &rarr; **Extract to**, and select your download directory.
 
-[![snapshot6](/wp-content/uploads/2013/08/snapshot6-150x150.png){: width="150" height="150" .alignright .size-thumbnail}](/wp-content/uploads/2013/08/snapshot6.png)
+<a href="/wp-content/uploads/2013/08/snapshot6.png"><img src="/wp-content/uploads/2013/08/snapshot6-150x150.png" style="float:right;"></a>
 
 This will create a folder in the current directory, with the PKGBUILD and needed support files. Back in Dolphin, drag this folder to your "build" directory in the left pane.
 
@@ -87,7 +85,7 @@ These are user/community maintained repositories, the quality of the packages va
 
 Search for your desired package, click on **Download snapshot**". In dolphin, have the split pane setup again, and in the right pane navigate to the directory where your downloads go.
 
-[![untar](/wp-content/uploads/2013/08/untar-150x150.png){: width="150" height="150" .alignright .size-thumbnail}](/wp-content/uploads/2013/08/untar.png)
+[![untar](/wp-content/uploads/2013/08/untar-150x150.png)](/wp-content/uploads/2013/08/untar.png)
 
 Right-click the just downloaded package tar, select **Extract** &rarr; **Extract Archive Here**. This will create a folder in the current directory, with the PKGBUILD and needed support files. Drag this folder to your `build` directory in the left pane.
 
@@ -113,13 +111,13 @@ makepkg -si
 
 Once the dependency checks have finished, this build will fail, since the PKGBUILD calls for Arch-Linux specific packages _libkdcraw5_ and _marble-common_.
 
-[![error](/wp-content/uploads/2013/08/error-150x150.png){: width="150" height="150" .alignright .size-thumbnail}](/wp-content/uploads/2013/08/error.png)
+[![error](/wp-content/uploads/2013/08/error-150x150.png)](/wp-content/uploads/2013/08/error.png)
 
 Open the PKGBUILD file, and in the `depends=` line, edit libkdcraw5 and change to libkdcraw, edit marble-common and change to marble (both are what upstream uses) and run the `makepkg` command again.
 
 If you know a newer version of a package is available, or prefer to use an older version, edit the `pkgver=` line, and change to your desired version. If you decide to get a different version, you'll need to get the correct md5sum (sha256sum) from the new tar.
 
-[![sha256](/wp-content/uploads/2013/08/sha1-150x150.png){: width="150" height="150" .alignright .size-thumbnail}](/wp-content/uploads/2013/08/sha1.png)
+[![sha256](/wp-content/uploads/2013/08/sha1-150x150.png)](/wp-content/uploads/2013/08/sha1.png)
 
 Safest is to get this directly from the upstream source, but since it is not always easily available or published, you can use `makepkg` for this too:
 
